@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{% block title %}Study Notes Organizer{% endblock %}</title>
+<style>
+*{box-sizing:border-box}body{margin:0;font-family:Arial,sans-serif;background:#f2f5fb;color:#243047}
+header{background:#243b64;color:white;padding:22px 7%}header h2{margin:0 0 14px}
+nav{display:flex;flex-wrap:wrap;gap:18px}nav a{color:white;text-decoration:none;font-weight:bold}
+main{max-width:850px;margin:30px auto;padding:25px;background:white;border-radius:12px;box-shadow:0 4px 18px #1b315010}
+input,textarea,button{width:100%;padding:11px;margin:7px 0 14px;font:inherit}
+button,.button{display:inline-block;background:#315ca8;color:white;border:0;cursor:pointer;border-radius:5px;padding:11px 15px;text-decoration:none}
+.note,.stat{border:1px solid #dce3ef;padding:15px;margin:12px 0;border-radius:8px;overflow-wrap:anywhere}
+.muted{color:#64748b}.error{color:#b42318}@media(max-width:600px){main{margin:14px;padding:18px}}
+</style></head><body>
+<header><h2>Study Notes Organizer</h2><nav>
+<a href="/">Home</a><a href="/add">Add Notes</a><a href="/notes">View Notes</a><a href="/search">Search</a>
+</nav></header><main>{% block content %}{% endblock %}</main></body></html>

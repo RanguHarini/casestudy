@@ -1,0 +1,7 @@
+{% extends "base.html" %}{% block title %}Add Note | Study Notes Organizer{% endblock %}
+{% block content %}<h1>Add a New Note</h1>{% if error %}<p class="error">{{ error }}</p>{% endif %}
+<form method="POST"><label for="title">Note title</label>
+<input id="title" name="title" required maxlength="150" placeholder="e.g. DBMS Normalization">
+<label for="subject">Subject</label><input id="subject" name="subject" required maxlength="100" placeholder="e.g. DBMS">
+<label for="content">Note content</label><textarea id="content" name="content" rows="8" required placeholder="Write your notes here"></textarea>
+<button type="submit">Save Note</button></form>{% endblock %}

@@ -1,0 +1,6 @@
+{% extends "base.html" %}{% block title %}Search Notes | Study Notes Organizer{% endblock %}
+{% block content %}<h1>Search Study Notes</h1><form method="GET">
+<label for="q">Search title, subject, or content</label><input id="q" name="q" value="{{ query }}" placeholder="e.g. DBMS">
+<button type="submit">Search</button></form>{% if query %}<p>Results for: <strong>{{ query }}</strong></p>{% endif %}
+{% for note in notes %}<article class="note"><h3>{{ note['title'] }}</h3><p><strong>Subject:</strong> {{ note['subject'] }}</p><p>{{ note['content'] }}</p></article>
+{% else %}<p>No matching notes found.</p>{% endfor %}{% endblock %}

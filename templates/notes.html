@@ -1,0 +1,6 @@
+{% extends "base.html" %}{% block title %}All Notes | Study Notes Organizer{% endblock %}
+{% block content %}<h1>All Study Notes</h1>{% for note in notes %}
+<article class="note"><h3>{{ note['title'] }}</h3><p><strong>Subject:</strong> {{ note['subject'] }}</p>
+<p>{{ note['content'] }}</p><form method="POST" action="{{ url_for('delete_note', note_id=note['id']) }}" onsubmit="return confirm('Delete this note?');">
+<button type="submit">Delete Note</button></form></article>{% else %}
+<p>No notes available yet. <a href="/add">Add your first note.</a></p>{% endfor %}{% endblock %}

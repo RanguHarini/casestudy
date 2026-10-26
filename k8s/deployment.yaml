@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: study-notes-organizer
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: study-notes-organizer
+  template:
+    metadata:
+      labels:
+        app: study-notes-organizer
+    spec:
+      containers:
+        - name: study-notes-organizer
+          image: ranguharini/study-notes-organizer:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 5001
+          env:
+            - name: DB_PATH
+              value: /data/notes.db
+          volumeMounts:
+            - name: notes-storage
+              mountPath: /data
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: 5001
+            initialDelaySeconds: 5
+            periodSeconds: 10
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: 5001
+            initialDelaySeconds: 15
+            periodSeconds: 20
+      volumes:
+        - name: notes-storage
+          persistentVolumeClaim:
+            claimName: study-notes-pvc

@@ -1,0 +1,6 @@
+{% extends "base.html" %}{% block title %}Home | Study Notes Organizer{% endblock %}
+{% block content %}<h1>Welcome to your study space</h1>
+<p class="muted">Save your notes, organize subjects, and find study material quickly.</p>
+<div class="stat"><h3>Total notes</h3><p>{{ count }}</p></div>
+<div class="stat"><h3>Subjects covered</h3><p>{{ subjects }}</p></div>
+<p><a class="button" href="/add">Add a note</a></p><p><a href="/notes">Browse all saved notes</a></p>{% endblock %}
